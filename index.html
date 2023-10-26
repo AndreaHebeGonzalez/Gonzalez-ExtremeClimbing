@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/estilos.css">
+    <title>Extreme Climbing</title>
+</head>
+<body>
+    <!-- =========EMPIEZA HEADER========= --> 
+    <header>
+        <section class="contenedor-menu-general">
+
+            <div id="icono-hamburguesa">
+                <img class="icono" src="img/iconos/menuhamburguesa.png" alt="Menu de navegacion">
+            </div>
+    
+            <div class="logo">
+                <img src="img/logo2.png" alt="Logo de Extreme Climbing">
+            </div>
+    
+            <!-- EMPIEZA menu de navegacion -->
+            
+            
+            <div class="contenedor-menu-principal">
+                <div id= "header-menu-mobile">
+                    <!-- Busqueda de productos -->
+
+                    <input type="text" placeholder="buscar" class="buscar"> 
+
+                    <div class="lupa">
+                        <img class="icono" src="img/iconos/buscar.png" alt="Buscar articulo">
+                    </div>
+
+                    <!-- FIN Busqueda de productos -->
+
+                    <div id="cierre">
+                        <img class="icono2" src="img/iconos/cierre.png" alt= "Cruz para cerrar el menú">
+                    </div>
+                </div>
+
+                <nav class="nav-principal">
+                    <ul>
+                        <li class="item-nav">
+                            <a href="#" class="link-nav">Inicio</a>
+                        </li>
+        
+                        <li class="item-nav">
+                            <a href="#" class="link-nav">Empresa</a>
+                        </li>
+        
+                        <li id="item-productos"><a href="#">Productos</a> <!-- Visible en version mobile -->
+                            <div class="nav-contenedor-categorias">
+                                <ul class="nav-categorias">
+                                    <li class="item-categoria">
+                                        <a href="" class="link-nav">Escalada</a>
+                                    </li>
+                                    <li class="item-categoria">
+                                        <a href="" class="link-nav">Camping</a>
+                                    </li>
+                                    <li class="item-categoria">
+                                        <a href="" class="link-nav">Trekking</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+        
+                        <li class="item-nav">
+                            <a href="#" class="link-nav">Contacto</a>
+                        </li>
+        
+                        <li class="item-nav" id="cliente"> <!-- No aparece en version mobile -->
+                            <a href="#" class="link-nav">Cliente</a>
+
+                            <div class="nav-contenedor-cliente">
+
+                                <ul class="nav-cliente">
+                                    <li>
+                                        <a href="#" class="link-nav" style="font-size: 16px;">Ingresá</a>
+                                    </li>
+                                    <li style="color: #000;">
+                                        /
+                                    </li>
+                                    <li>
+                                        <a href="#" class="link-nav" style="font-size: 16px;">Registrate</a>
+                                    </li>
+                                </ul>
+
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+    
+                <div class="login-register-contenedor"> <!-- Aparece en version mobile -->
+                    <div id="login">
+                        <img class="icono" src="img/iconos/usuario.png" alt="Botón Login">
+                        <a href="#">Ingresá</a>
+                    </div>
+
+                    <div id="slash">
+                        <img class="icono" src="img/iconos/slash.png" alt="Botón Login">
+                    </div>
+
+                    <div id="registro">
+                        <img class="icono" src="img/iconos/registro.png" alt="Botón registro">
+                        <a href="#">Registrate</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TERMINA menu de navegacion -->
+
+            <!-- Busqueda de productos-->
+
+            <input type="text" placeholder="buscar" class= "buscar ocultar"> 
+            <div class="lupa aparece" style="display: none;">
+                <img class="icono" src="img/iconos/buscar.png" alt="Carrito de compras" style="max-width: 43px;"> <!-- Este carrito se ubica a la derecha en version mobile y escritorio -->
+            </div>
+
+            <!-- FIN Busqueda de productos -->
+
+            <div id="carrito">
+                <img class="icono" src="img/iconos/carrito.png" alt="Carrito de compras" style="max-width: 43px;"> <!-- Este carrito se ubica a la derecha en version mobile y escritorio -->
+                <div class="cantidad-de-productos"><span>0</span></div>
+            </div>
+
+            
+            <!-- Menu de categorias visible en version desktop -->
+        
+            <nav class="nav-categorias-desktop"> 
+                
+                <ul>
+                    <img class="icono" src="img/iconos/home-blanco.png" alt="inicio">
+
+                    <li class="item-categoria">
+                        <a href="" class="link-nav">ESCALADA</a>
+                    </li>
+                    <li class="item-categoria">
+                        <a href="" class="link-nav">CAMPING</a>
+                    </li>
+                    <li class="item-categoria">
+                        <a href="" class="link-nav">TREKKING</a>
+                    </li>
+                </ul>
+
+            </nav>
+
+            <!-- FIN Menu de categorias visible en version desktop -->
+        </section>
+        
+        
+
+        
+        <!-- Inicia Portada -->
+        <section id="portada">
+            <div>
+                <img class="img-1" src="img/portada-img_1.jpg" alt="Imagen de portada persona escalando" width="100%" height="auto">
+            </div>
+
+            
+            <img class="img-propaganda" src="img/La-sportiva.png" alt="Logo marca La Sportiva">
+            
+
+            <button class="btn-1">Comprar</button>    
+        </section>
+        <!-- Fin Portada -->
+
+    </header> 
+    
+    <!-- =========Termina HEADER========= -->
+
+    <!-- =========Empieza MAIN========= -->
+    <main >
+
+        <!-- Seccion categorias -->
+        <section id="categorias" class="contenedor">
+            <div class="cat-1">
+                <h2>Escalada</h2>
+                <img  src="img/Escalada.jpg" alt="Imágen categoria escalada" width="100%" height="auto">
+            </div>
+            <div>
+                <div class="cat-2">
+                    <h2>Camping</h2>
+                    <img src="img/camping.jpg" alt="Imágen categoria camping" width="100%" height="auto">
+                </div>
+                
+                <div class="cat-3" style="width: 48.5%;">
+                    <h2>Trekking</h2>
+                    <img  src="img/trekking.jpg" alt="Imágen categoria trekking" width="100%" height="auto"> 
+                </div>
+            </div>
+        </section>
+        <!-- FIN Seccion categorias -->
+
+        <!-- Seccion productos destacados -->
+        <section class="contenedor">
+            <div class="titulo">
+                <h2>Destacados en <span class="estiloTitulo">Extreme Climbing</span></h2>
+                <div class="borde"></div>    
+            </div>
+
+
+            <div id="contenedor-productos-destacados">
+
+                <articles class="producto"> 
+                    <div class="row-img-iconos">
+                        <img class="icono" src="img/iconos/sumar-a-carrito.png" alt="Agregalo al carrito" class="icono-sumar-a-carrito">
+                        <img class="articulo" src="img/img-camping/guan.png" alt="Producto 1">
+                        <img class="icono" src="img/iconos/me-gusta-32.png" alt="Sumalo a tus favoritos">
+                    </div>
+                    <div class="valoracion">
+                        <img class="icono" src="img/iconos/estrella-llena.png" alt="estrella llena"><img class="icono" src="img/iconos/estrella-llena.png" alt="estrella llena"><img class="icono" src="img/iconos/estrella-llena.png" alt="estrella llena"><img class="icono" src="img/iconos/estrella-llena.png" alt="estrella llena"><img class="icono" src="img/iconos/estrella-vacia.png" alt="estrella vacía">
+                    </div>
+                    
+                    <h4>Naturehike</h4>
+
+                    <h3>GL05 Guante Softshell</h3>
+                    
+                    <div class="precio">
+                        <img src="img/iconos/efectivo.png" alt="" class="icono">
+                        <h3><span>$</span>15000</h3>
+                    </div>
+
+                    <button class="btn-2">Ver más</button> 
+
+                </articles>
+
+                <articles class="producto">
+                    <div class="row-img-iconos">
+                        <img class="icono" src="img/iconos/sumar-a-carrito.png" alt="Agregalo al carrito" class="icono-sumar-a-carrito">
+                        <img class="articulo" src="img/img-camping/guan.png" alt="Producto 2">
+                        <img class="icono" src="img/iconos/me-gusta-32.png" alt="Sumalo a tus favoritos">
+                    </div>
+                    <div class="valoracion">
+                        <img class="icono" src="img/iconos/estrella-llena.png" alt="estrella llena"><img class="icono" src="img/iconos/estrella-llena.png" alt="estrella llena"><img class="icono" src="img/iconos/estrella-llena.png" alt="estrella llena"><img class="icono" src="img/iconos/estrella-llena.png" alt="estrella llena"><img class="icono" src="img/iconos/estrella-vacia.png" alt="estrella vacía">
+                    </div>
+                    
+                    <h4>Naturehike</h4>
+
+                    <h3>GL05 Guante Softshell</h3>
+                    
+                    <div class="precio">
+                        <img src="img/iconos/efectivo.png" alt="" class="icono">
+                        <h3><span>$</span>15000</h3>
+                    </div>
+
+                    <button class="btn-2">Ver más</button> 
+                </articles>
+
+                <articles class="producto">
+                    <div class="row-img-iconos">
+                        <img class="icono" src="img/iconos/sumar-a-carrito.png" alt="Agregalo al carrito" class="icono-sumar-a-carrito">
+                        <img class="articulo" src="img/img-camping/guan.png" alt="Producto 1">
+                        <img class="icono" src="img/iconos/me-gusta-32.png" alt="Sumalo a tus favoritos">
+                    </div>
+                    <div class="valoracion">
+                        <img class="icono" src="img/iconos/estrella-llena.png" alt="estrella llena"><img class="icono" src="img/iconos/estrella-llena.png" alt="estrella llena"><img class="icono" src="img/iconos/estrella-llena.png" alt="estrella llena"><img class="icono" src="img/iconos/estrella-llena.png" alt="estrella llena"><img class="icono" src="img/iconos/estrella-vacia.png" alt="estrella vacía">
+                    </div>
+                    
+                    <h4>Naturehike</h4>
+
+                    <h3>GL05 Guante Softshell</h3>
+                    
+                    <div class="precio">
+                        <img src="img/iconos/efectivo.png" alt="" class="icono">
+                        <h3><span>$</span>15000</h3>
+                    </div>
+
+                    <button class="btn-2">Ver más</button> 
+                </articles>
+
+                <articles class="producto">
+                    <div class="row-img-iconos">
+                        <img class="icono" src="img/iconos/sumar-a-carrito.png" alt="Agregalo al carrito" class="icono-sumar-a-carrito">
+                        <img class="articulo" src="img/img-camping/guan.png" alt="Producto 1">
+                        <img class="icono" src="img/iconos/me-gusta-64.png" alt="Sumalo a tus favoritos">
+                    </div>
+                    <div class="valoracion">
+                        <img src="img/iconos/estrella-llena.png" alt="estrella llena">
+                        <img src="img/iconos/estrella-llena.png" alt="estrella llena">
+                        <img src="img/iconos/estrella-llena.png" alt="estrella llena">
+                        <img src="img/iconos/estrella-llena.png" alt="estrella llena">
+                        <img src="img/iconos/estrella-vacia.png" alt="estrella vacía">
+                    </div>
+                    
+                    <h4>Naturehike</h4>
+
+                    <h3>GL05 Guante Softshell</h3>
+                    
+                    <div class="precio">
+                        <img src="img/iconos/efectivo.png" alt="" class="icono">
+                        <h3><span>$</span>15000</h3>
+                    </div>
+
+                    <button class="btn-2">Ver más</button> 
+                </articles>
+                
+            </div>
+
+        </section>
+        <!-- FIN Seccion productos destacados -->
+
+        <!-- Seccion bunner -->
+        <section class="banner_1">
+            <div class="contenedor_banner">
+                <div class="img-bunner-1">
+                    <img src="img/img-banner-1.jpg" alt="Imagen de banner persona haciendo trekking">
+                </div>
+                <div class="img-bunner-2">
+                    <div><h2>Todo<span>TRAKKING</span> <span>50%</span>off</h2></div>
+                    <img src="img/img-banner-2.jpg" alt="Imagen de banner persona haciendo trekking">
+                </div>
+                <div class="img-bunner-3"> 
+                    <img src="img/img-banner-3.jpg" alt="Imagen de banner persona haciendo trekking">
+                </div>
+                <div class="img-bunner-4">
+                    <img src="img/img-banner-4.jpg" alt="Imagen de banner persona haciendo trekking">
+                </div>
+            </div>
+        </section>
+        <!-- FIN Seccion bunner -->
+
+        <!-- Seccion carrousel de marcas -->
+    </main>
+    <!-- =========Termina MAIN========= -->
+
+    <!-- =========Empieza FOOTER========= -->
+    <footer>
+
+    </footer>
+    <!-- =========Termina FOOTER========= -->
+
+    
+    <script src="js/slider.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,1014 @@
+/* Importo fuentes */
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,400&family=Ubuntu:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap');
+
+
+/*--------------------------------------------------------------
+/** 1. VARIABLES
+--------------------------------------------------------------*/
+
+/* ======Variables para colores====== */
+
+:root {
+    --color-uno    : #fff;
+    --color-dos      : #000;
+    --color-body    : #082011;
+    --color-destacable  : #F69709 ;
+    --color-destacable-dos  : #D58206; /* Boton de portada, boton de arrepentimiento en footer, borde superior del footer, bordes inferiores en imputs, boton agregar al carrito y botonseguir comprando*/
+    --color-fuente-secundaria      : #2E2D2D; /* copyright en footer */
+    --color-footer-primario : #0A2F35;
+    --color-footer-secundario: #808080; /* copyright en footer */
+}
+
+/* ======Variables para fuentes====== */
+
+:root {
+    --fuente-primaria    : 'Kanit', sans-serif;  /* Titulos, banners, lebels, menu, titulos en footer */
+    --fuente-parrafos  : 'Ubuntu', sans-serif; /* parrafos */
+}
+
+/*--------------------------------------------------------------
+/** 2. Configuraciones generales
+--------------------------------------------------------------*/
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html { /* definiendo un comportamiento global para toda la página. Incluye configuración de un color de fondo y una fuente predeterminada que se aplicará en todo el documento. */
+    background-color: var(--color-uno);
+    color: var(--color-uno);
+    font-family: var(--fuente-parrafos);
+}
+
+body {
+    background-color: var(--color-uno);
+    font-family: var(--fuente-parrafos);
+    position: relative;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-style: normal;
+    font-weight: 200;
+    font-family: var(--fuente-primaria); 
+    color: var(--color-uno);
+}
+
+h3,
+h4 {
+    font-style: normal;
+    font-weight: 300;
+    font-family: var(--fuente-primaria); 
+    color: var(--color-uno);
+}
+
+h1 {
+    font-size: clamp(2.4rem, 4vw, 6rem);
+}
+
+h2 {
+    font-size: clamp(1.5rem, 2.8vw, 4rem);
+}
+
+h3 {
+    font-size: clamp(1rem, 1.5vw, 2.8rem);
+}
+
+h4 {
+    font-size: clamp(0.7rem, 1.5vw, 2.5rem);
+}
+
+p {
+    font-family: var(--fuente-parrafos); 
+    font-size: clamp(0.8125rem, 1.2vw, 2rem);
+}
+
+
+/*--------------------------------------------------------------
+/** 2. Configuraciones básicas
+--------------------------------------------------------------*/
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+a {
+    color: var(--color-dos);
+    font-family: var(--fuente-primaria);
+    font-weight: 300;
+    font-size: 15px;
+}
+
+a,
+a:focus,
+a:hover {
+    text-decoration: none;
+    outline: 0;
+}
+
+.icono {
+    width: 25px;
+    height: auto;
+}
+
+.icono2 {
+    width: 30px;
+    height: auto;
+}
+
+input, button {
+    outline: none;
+}
+
+.btn-1 {
+    border: none;
+    text-align: center;
+    border-radius: 5px 0 5px 0;
+    width: 25%;
+    height: 12%;
+    background-color: var(--color-destacable-dos);
+    color: var(--color-uno);
+    font-size: clamp(0.8125rem, 1.2vw, 2rem);
+    cursor: pointer;
+}
+
+/*--------------------------------------------------------------
+/** 3. HEADER
+--------------------------------------------------------------*/
+
+.logo img{
+    width: 264px;
+    height: auto;
+}
+
+/* Elementos que no aparecen en mobile */
+
+#cliente,
+.nav-categorias-desktop {
+    display: none;
+}
+
+/* Para que aparezca el menu mobile */
+
+.visible {
+    visibility: visible !important;
+    opacity: 1 !important;
+    transform: translateX(0) !important;
+}
+
+.ocultar {
+    display: none;
+}
+
+.contenedor-menu-general{
+    border-bottom: #000 solid 2px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem; 
+    position: relative;
+}
+
+.contenedor-menu-principal {
+    z-index: 99;
+    visibility: hidden;
+    opacity: 0;
+    transform: translateX(-100%);
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 45vw;
+    min-width: 210px;
+    max-width: 316px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: start;
+    background-color: var(--color-uno);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s;
+}
+
+#header-menu-mobile {
+    background-color: var(--color-destacable);
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+}
+
+#cierre {
+    position: absolute;
+    top:5%;
+    right: -15%;
+    width: 25px;
+    height: 25px;
+    border-radius: 100%;
+    text-align: center;
+}
+
+.buscar {
+    width: 0px;
+    height: 40px;
+    padding: 0 20px;
+    color:#000;
+    border-radius: 5px;
+    font-size: 16px;
+    border: none;
+    transition: all .7s ease;
+    opacity: 0;
+    visibility: hidden;
+}
+
+::placeholder {
+    color: #b3b3b3;
+}
+
+.input-extendido { /* Aplico estilos al input cuando el mouse pasa o hace focus sobre #header-menu-mobile */
+    width: 100% !important; 
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.lupa {
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.lupa img {
+    transition: .7 ease;
+}
+
+/* Carrito de compras mobile y desktop */
+
+#carrito {
+    cursor: pointer;
+    position: relative;
+    z-index: 5;
+}
+
+#carrito div {
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    position: absolute;
+    top:50%;
+    left: 50%;
+    z-index: 10;
+    background-color: #D58206;
+
+}
+
+#carrito div span {
+    text-align: center;
+    display: block;
+}
+
+/*Propiedades para menú principal activan en mobile se modifican en desktop */
+
+.nav-principal {
+    flex: 1;
+    width: 100%;
+}
+
+.nav-principal > ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;    
+}
+
+.nav-principal ul > li {
+    padding: 0.3rem;
+    border-bottom: 0.3px solid rgb(201, 200, 200);
+}
+
+.nav-principal ul > li a {
+    font-size: 16px;
+    transition: all 0.5s;
+}
+
+.nav-principal ul > li a:hover {
+    font-weight: 500;
+}
+
+/* Boton cliente del menú principal desktop */
+
+#cliente > a:nth-child(1) {
+    background-color: var(--color-destacable);
+    border-radius: 5px;
+    padding: 5px 20px;
+    transition: all 0.5s;
+}
+
+#cliente > a:nth-child(1):hover, #cliente > a:nth-child(1):active{
+    font-weight: 300;
+}
+
+/* Propiedades para submenú cliente en menu desktop */
+
+.nav-contenedor-cliente {
+    position: relative;
+    visibility: hidden;
+    opacity: 0;
+    height: 0;
+    transition: all .3s ease;
+}
+
+.mostrar-submenu-cliente {
+    visibility: visible;
+    opacity: 1;
+    height: 100%;
+}
+
+.nav-cliente {
+    position: absolute;
+    top:40%;
+    width: 180px;
+    border: 1px solid var(--color-dos);
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-evenly;
+    gap: 0.5rem !important;
+}
+
+.nav-cliente li {
+    padding: 0;
+}
+
+/* FIN Propiedades para submenú cliente en menu desktop */
+
+
+/* Propiedades para submenú productos en menu mobile */
+
+.link-productos {
+    position: relative;
+}
+
+.nav-contenedor-categorias {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: 0.3s grid-template-rows;
+}
+
+.mostrar-categorias{
+    grid-template-rows: 1fr;
+}
+
+.nav-categorias {
+    overflow: hidden;
+}
+
+.nav-categorias > li {
+    border-bottom: none !important;
+}
+
+/* FIN Propiedades para submenú productos en menu mobile */
+
+
+/* Propiedades para footer de menú mobile */
+
+.login-register-contenedor {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 1rem 0;
+    background-color: rgb(227, 223, 223);
+}
+
+.login-register-contenedor > div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    align-items: center;
+}
+
+.login-register-contenedor > div a {
+    font-size: 16px;
+}
+
+/* FIN Propiedades para footer de menú mobile */
+
+/* Propiedades para menú secundario de categorias de menú desktop */
+
+.nav-categorias-desktop {
+    z-index: 99;
+    width: 65%;
+    background-color: #000;
+    padding: 0.8rem;
+    position: absolute;
+    bottom: -45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 5px;
+}
+
+.nav-categorias-desktop ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.nav-categorias-desktop a {
+    color: var(--color-uno);
+    font-size: clamp(1.25rem, 1.2vw, 2rem);
+}
+
+/* Fin Propiedades para menú secundario de categorias de menú desktop */
+
+/* Propiedades de section portada */
+
+#portada {
+    position: relative;
+    background-color: var(--color-body);
+}
+
+#portada .img-1 {
+    width: 100%;
+    height: auto;
+}
+
+#portada > div:nth-child(2) {
+    border: 1px solid rebeccapurple;
+    /* position: absolute;
+    top: 59%;
+    left: 70%; */
+    
+}
+
+#portada .img-propaganda {
+    width: 35%;
+    height: auto;
+    position: absolute;
+    top: 30%;
+    left: 60%;
+}
+
+#portada button {
+    top: 78%;
+    left: 65%;
+    position: absolute;
+}
+
+/* Fin Propiedades de section portada */
+
+
+@media (min-width: 768px) {
+
+    /* ==========Header========== */
+
+    .contenedor-menu-general {
+        padding: 2rem 3rem;
+    }
+
+    .contenedor-menu-principal { 
+        width: 35vw;
+    }
+
+    .logo img {
+        width: 300px;
+        height: auto;
+    }
+
+    .btn-1 {
+        width: 15%;
+        height: 7%;
+    }
+
+    /*Ubicacion boton portada*/
+    #portada button {
+        top: 78%;
+        left: 63%;
+        position: absolute;
+    }
+    
+    #portada .img-propaganda {
+        width: 22%;
+        top: 50%;
+    }
+
+}
+
+
+/* 
+=====================DESKTOP para HEADER===================== 
+*/
+
+
+@media (min-width: 1200px) {
+
+    /* ==========Header========== */
+
+    /* Elementos que aparecen en desktop */
+    .nav-categorias-desktop, 
+    #cliente {
+        display: block;
+    }
+
+    .aparece {
+        display: block !important; /*sobre escribe estilo en linea*/
+    }
+
+    .buscar {
+        border: #000 1px solid;
+        transition: all .7s ease;
+    }
+
+    .aparece-input {
+        display: block !important;
+    }
+
+    .input-extendido-dos { /* Aplico estilos al input cuando el mouse pasa o hace focus sobre #header-menu-mobile */
+        width: 35% !important; 
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+
+    #icono-hamburguesa,
+    #header-menu-mobile,
+    .login-register-contenedor,
+    #item-productos {
+        display: none;
+    }
+
+    .logo {
+        flex: 1; /* Para que tire el menú de navegación hacia la derecha */
+    }
+
+    .logo img {
+        width: clamp(409px, 34%, 700px);
+        height: auto;
+    }
+
+    .contenedor-menu-general{
+        border-bottom: #000000 0.5px solid;
+        padding: 1.5rem 2rem;
+        gap: 1.5rem;
+    }
+
+    .contenedor-menu-principal {
+        position: initial;
+        transform: initial;
+        height: initial;
+        width: initial;
+        min-width: initial;
+        max-width: initial;
+        visibility: visible;
+        opacity: 1;
+        transition: none;
+        box-shadow: none;
+        transition: none
+    }
+
+    .menu-oculto {
+        display: none;
+    }
+
+    .nav-principal {
+        flex: initial; /* Restablecer flex a su valor inicial */
+        width: initial; /* Restablecer width a su valor inicial */
+    }
+
+    .nav-principal ul {
+        display: flex;
+        flex-flow: row wrap;
+        font-size: 18px;
+        gap: 1rem;
+    }
+
+    .nav-principal ul > li {
+        border-bottom: initial;
+        font-size: 18px;
+    }
+
+    .nav-principal ul > li a{
+        font-size: clamp(1.25rem, 1.2vw, 2rem);
+    }
+
+    .desaparece-menu-principal {
+        visibility: hidden;
+        opacity: 0;
+        transition: 0.5s ease, visibility 0.5s;
+    }
+
+    .btn-1 {
+        width: 12%;
+        height: 6%;   
+    }
+
+    /* Ubicacion boton portada */
+    #portada button {
+        top: 75%;
+        left: 66%;
+        position: absolute;
+    }
+
+    #portada .img-propaganda {
+        width: 23%;
+    }
+}
+
+/*--------------------------------------------------------------
+/** 3. FIN HEADER
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+/** 4. MAIN
+--------------------------------------------------------------*/
+
+main {
+    background-color: var(--color-body);
+}
+/* ========Seccion categorias======================== */
+.contenedor {
+    padding: 25px ;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#categorias .cat-1 {
+    margin-bottom: 3%;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+#categorias .cat-1 h2 {
+    position: absolute;
+    top: 60%;
+    left: 70%;
+    z-index: 5;
+}
+
+#categorias .cat-1::before {
+    content: '';
+    background: rgba(0, 0, 0, 0.63);
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 3px;
+    z-index: 1;
+    left: 0;
+    pointer-events: none;
+    transition: 0.7s ease;
+}
+
+#categorias .cat-1:hover::before {
+    background: rgba(0, 0, 0, 0.286);
+} 
+
+#categorias > div:nth-child(2) {
+    display: flex;
+    justify-content: space-between;
+}
+
+#categorias .cat-2{
+    position: relative;
+    width: 48.5%; 
+    height: auto;
+}
+
+#categorias .cat-2::before {
+    content: '';
+    background: rgb(0, 0, 0, 0.63);
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 3px;
+    z-index: 1;
+    left: 0;
+    pointer-events: none;
+    transition: 0.7s ease;
+}
+
+#categorias .cat-2:hover::before {
+    background: rgba(0, 0, 0, 0.286);
+} 
+
+#categorias .cat-2 h2 {
+    position: absolute;
+    top: 18%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+}
+
+#categorias .cat-3 {
+    position: relative;
+    width: 48.5%; 
+    height: auto;
+}
+
+#categorias .cat-3 h2 {
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+}
+
+#categorias .cat-3::before {
+    content: '';
+    background: rgb(0, 0, 0, 0.63);
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 3px;
+    z-index: 1;
+    left: 0;
+    pointer-events: none;
+    transition: 0.7s ease;
+}
+
+#categorias .cat-3:hover::before {
+    background: rgba(0, 0, 0, 0.286);
+} 
+
+/* ========FIN seccion categorías========================*/
+
+
+/* ========Seccion productos destacados======================== */
+
+    /* Título--------->*/
+
+.titulo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-bottom: 50px;
+}
+
+.titulo h2 {    
+    /* font-weight: 500; */
+    margin-bottom: 0.3rem;
+    text-align: center;
+}
+
+.estiloTitulo { /*Estilo del span */
+    color: var(--color-destacable);
+}
+
+.borde {
+    border-top: 2px solid rgba(236, 239, 241, 0.07);
+    height: 1px;
+    margin: 15px auto 0;
+    position: relative;
+    width: 30%;
+    padding-bottom: 25px;
+}
+
+.borde:before {
+    content: "";
+    height: 6px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    top: -4px;
+    width: 30%;
+    background-color: var(--color-destacable);
+}
+
+    /*Fin Título--------->*/
+
+    /*Articulos productos destacados--------->*/
+
+#contenedor-productos-destacados { /* Contenedor padre de todos los articulos corresponde a la sección, abarcará el 100% del contenido del main*/
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+#contenedor-productos-destacados .producto { /*Este es el articulo y abarca 70% de su contenedor para valores menores a 768px, cuando aparecen en direccion columna*/
+    text-align: center; 
+    background-color: var(--color-uno);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem;
+    border-radius: 3%;
+    width: 70%; /* Evito que sea demasiado ancho en dispositivos más chicos */ 
+    max-width: 400px; /* Coloco un limite superior al ancho de este contenedor en la medida que crece el tamaño de pantalla hasta 767px*/ 
+    height: auto;
+    transition: transform 0.5s;
+}
+
+#contenedor-productos-destacados .producto:hover{
+    border-bottom: solid 3px var(--color-destacable-dos);
+    transform: translateY(-20px);
+}
+
+#contenedor-productos-destacados .row-img-iconos { /*Primer fila dentro del <articles>*/
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 0.3rem;
+    width: 100%; /*Este contenedor abarcará el 100% de su padre directo <articles>"*/
+}
+
+.row-img-iconos .articulo { /*Imagen central del <articles>*/
+    width: calc(75% - 50px); /*Fijo la proporcion de crecimiento , evito el desborde en su contenedor padre, y al mismo tiempo hago que el tamaño de la imagen crezca con el tamaño de pantalla, ya que su contenedor padre tiene un ancho del 100% (.row-img-iconos), y su abuelo del 70% (.producto), el limite del crecimiento se impondrá en el max-width de este ultimo (400px)*/
+}
+
+#contenedor-productos-destacados .row-img-iconos > img:nth-child(1),
+#contenedor-productos-destacados .row-img-iconos > img:nth-child(3) {
+    align-self: start; /*Ubicolos iconos de este contenedor en el extremo superior*/
+}
+
+.producto .valoracion {
+    padding-bottom: 0.2rem;
+    display: flex;
+    gap: 0.5rem;
+}
+
+.producto .valoracion > img {
+    width: 15px;
+    height: auto;
+}
+
+.producto .precio {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 0.5rem;
+    align-items: center;
+    padding-bottom: 0.5rem;
+}
+
+#contenedor-productos-destacados .producto h3,
+#contenedor-productos-destacados .producto h4 {
+    color: var(--color-dos);
+    padding-bottom: 0.3rem;
+}
+
+.btn-2 {
+    font-size: clamp(0.8125rem, 1.2vw, 2rem);
+    border: none;
+    border-radius: 3%;
+    background-color: #000;
+    color: var(--color-uno);
+    padding: 5px 20px;
+    cursor: pointer;
+}
+
+.btn-2:hover {
+    background-color: transparent;
+    border: #000 1px solid;
+    color: #000;
+}
+    /*FIN Articulos productos destacados--------->*/
+/* ========FIN Seccion productos destacados ========================*/
+
+/*========Seccion bunner========================*/
+.banner_1 {
+    width: 100%;
+    height: 215px;
+    padding: 50px 0;
+}
+
+.contenedor_banner {
+    background-color: var(--color-footer-secundario);
+    position: relative;
+}
+
+.contenedor_banner .img-bunner-1 img {
+    width: 100%;
+    height: auto;
+}
+
+.contenedor_banner .img-bunner-2 img {
+    width: 411px;
+    height: auto;
+    position: absolute;
+}
+
+.contenedor_banner .img-bunner-3 img{
+    width: 411px;
+    height: auto;
+    position: absolute;
+}
+
+.contenedor_banner .img-bunner-4 img {
+    width: 411px;
+    height: auto;
+    position: absolute;
+}
+
+/*========Fin Seccion bunner========================*/
+
+@media (min-width: 768px) {
+
+    /* ========Seccion productos destacados======================== */
+
+        /* Título--------->*/
+
+    .borde { /* Corresponde al titulo de la seccion*/
+        width:25%;
+    }
+        /*Fin Título--------->*/
+
+
+        /*Articulos productos destacados--------->*/
+
+    #contenedor-productos-destacados {
+        display: flex;
+        flex-flow: row wrap; /*A partir de 768 pixeles los articulos se colocarán en fila, cuando no entren pasaran a segunda fila.*/ /* ! Reemplazar por slider cuando pueda*/
+        justify-content: space-evenly; /*Reparto espacio sobramente equitativamente*/
+    }
+
+    /*FIN Articulos productos destacados--------->*/
+}
+
+/* 
+=====================DESKTOP para MAIN===================== 
+*/
+
+@media (min-width: 1200px) {
+
+    /*Para el main*/
+
+    .contenedor {
+        padding: 50px;
+    }
+
+    /*========Seccion categorias========================*/
+
+    #categorias .cat-1 h2 {
+        top: 80%;
+        left: 80%;
+    }
+
+    #categorias .cat-2 h2 {
+        top: 12%;
+    }
+
+    /*========FIN Seccion categorias========================*/
+
+    /* ========Seccion productos destacados======================== */
+        /*Articulos productos destacados--------->*/
+
+    .borde {
+        width:20%;
+    }
+
+    #contenedor-productos-destacados {
+        flex-wrap: nowrap; /*Esto ubica los articles en linea permanentemente, en la medida que aumenta el tamaño de dispositivos aumenta el tamaño del conenedor <articles> y de sus hijos*/
+    }
+
+    #contenedor-productos-destacados .producto .articulo {
+        width: calc(85% - 50px); /*Fijo en un 100% el crecimiento de la imagen central*/
+    }
+
+    .producto .valoracion > img {
+        width: 18px;
+        height: auto;
+    }
+        /*Fin Articulos productos destacados--------->*/
+    /*========Fin Seccion productos destacados========================*/
+
+    /*========Seccion bunner========================*/
+    .contenedor_banner .img-bunner-1 img {
+        width: 100%;
+    }
+    /*========Fin Seccion bunner========================*/
+}
+
+@media (min-width: 1900px) {
+
+    /* Seccion productos destacados */
+        /*Articulos productos destacados*/
+
+    #contenedor-productos-destacados .producto {
+        max-width: 700px; /* modifico el tamaño máximo para <articles> */
+    }
+    #contenedor-productos-destacados .producto .articulo  {
+        width: calc(100% - 80px); /*Modifico la propiedad por modificar el tamaño de los iconos de esta fila*/
+    }
+
+    .icono {
+        width: clamp(40px, 2.01vw, 70px);
+        height: auto;
+    }
+
+    .producto .valoracion > img {
+        width: clamp(30px, 1.5vw, 60px);
+        height: auto;
+    }
+        /*Fin Articulos productos destacados*/
+    /* Fin Seccion productos destacados */
+}
