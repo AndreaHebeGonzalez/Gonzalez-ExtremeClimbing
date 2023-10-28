@@ -21,7 +21,16 @@ const contenedorMenuCliente = document.querySelector('.nav-contenedor-cliente');
 
 const anchoDePantalla = window.innerWidth; //! No utilizado todavía
 
+//Traigo item caracteristicas desplegables de la página detalles de productos
 
+const caractDesplegables = document.querySelectorAll('.caract-desplegable');
+console.log(caractDesplegables);
+const contListaCaracteristicas = document.querySelectorAll('.cont-list-caracteristicas');
+console.log(contListaCaracteristicas)
+const listaCarateristicas = document.querySelectorAll('.lista-caracteristicas');
+console.log(listaCarateristicas)
+const flechaDesplegar = document.querySelectorAll('.caract-desplegable img');
+console.log(flechaDesplegar)
 //Escuchador de eventos ---------------------->
 
 /* La siguiente funcion aparece el menu mobile y desaparece el icono de hamburguesa */
@@ -71,9 +80,33 @@ subMenuCliente.addEventListener('mouseout', () => {
     contenedorMenuCliente.classList.remove('mostrar-submenu-cliente');
 })
 
-/*animacion de portada al cargar la pagina*/
 
-window.addEventListener('load', function() {
-    const header = document.querySelector('header');
-    header.style.left = '0';
-  });
+subMenuProductos.addEventListener('click', () => {
+    contenedorMenuCategorias.classList.toggle('mostrar-categorias');
+})
+
+//Aparecen y desaparecen la lista de caracteristicas de la pagína detalles de producto
+
+caractDesplegables[0].addEventListener('click', () => {
+    contListaCaracteristicas[0].classList.toggle('mostar-caracteristicas');
+    listaCarateristicas[0].classList.toggle('padding-lista-caract');
+    flechaDesplegar[0].classList.toggle('rotar-icono-desplegar');
+})
+
+caractDesplegables[1].addEventListener('click', () => {
+    contListaCaracteristicas[1].classList.toggle('mostar-caracteristicas');
+    listaCarateristicas[1].classList.toggle('padding-lista-caract');
+    flechaDesplegar[1].classList.toggle('rotar-icono-desplegar');
+})
+
+
+/*Script para botón crear cuenta de pagina login agrego link para redireccionar // ! no me funciona con <a> si agrego img al boton*/
+
+const btnCrearCuenta = document.querySelector('#crearCuenta');
+
+btnCrearCuenta.addEventListener('click', function() {
+    window.location.href = 'registro.html';
+});
+
+/*Scrip para cambiar de imagen en product details */
+
