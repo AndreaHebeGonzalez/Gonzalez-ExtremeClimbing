@@ -77,7 +77,7 @@
 
 ### Paleta de colores:
 Este color `#ffffff`
-![Paleta](https://github.com/AndreaHebeGonzalez/Gonzalez-EXtremeClimbing/blob/58726fa3bf9436680b946519de6a644fb481fdef/img/PaletaDeColores.png?raw=true)
+![Paleta](https://raw.githubusercontent.com/AndreaHebeGonzalez/Gonzalez-ExtremeClimbing/main/img/PaletaDeColores.png)
 
 
 ### Logo: 
