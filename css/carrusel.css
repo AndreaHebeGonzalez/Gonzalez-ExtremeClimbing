@@ -1,0 +1,44 @@
+.contenedor-carrusel {
+    width: 100%;
+    overflow: hidden;
+}
+
+.carrusel {
+    display: flex;
+    transition: transform 1s ease;
+    gap: 1rem;
+    overflow: hidden;
+    padding: 25px 0 10px 0;
+
+}
+
+.carrusel .cont-img {
+    width: 100%;
+    height: auto;
+}
+
+.carrusel .cont-img img {
+    width: 20vw;
+    height: auto;
+}
+
+@media (min-width: 768px) {
+
+
+    .carrusel .cont-img img {
+        width: 15vw;
+        height: auto;
+    }
+}
+
+@media (min-width: 1200px) {
+
+    .carrusel {
+        padding-top: 70px;
+    }
+
+    .carrusel .cont-img img {
+        width: 10vw;
+        height: auto;
+    }
+}
