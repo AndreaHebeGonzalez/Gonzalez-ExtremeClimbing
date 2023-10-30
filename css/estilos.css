@@ -179,6 +179,7 @@ header {
     align-items: center;
     padding: 1.2rem; 
     position: relative;
+
 }
 
 .contenedor-menu-principal {
@@ -189,8 +190,8 @@ header {
     position: absolute;
     top: 0;
     left: 0;
-    height: 100vh;
-    width: 45vw;
+    height:calc(100vh - 56px);
+    width: 50vw;
     min-width: 210px;
     max-width: 316px;
     display: flex;
@@ -294,7 +295,7 @@ header {
 }
 
 .nav-principal ul > li {
-    padding: 0.3rem;
+    padding: 0.5rem;
     border-bottom: 0.3px solid rgb(201, 200, 200);
 }
 
@@ -348,7 +349,7 @@ header {
 }
 
 .nav-cliente li {
-    padding: 0;
+    padding: 0 !important;
 }
 
 /* FIN Propiedades para submenú cliente en menu desktop */
@@ -480,6 +481,7 @@ header {
 
     .contenedor-menu-principal { 
         width: 35vw;
+        height: 100vh;
     }
 
     .logo img {
@@ -837,7 +839,7 @@ header {
 
 #contenedor-productos-destacados .row-img-iconos > img:nth-child(1),
 #contenedor-productos-destacados .row-img-iconos > img:nth-child(3) {
-    align-self: start; /*Ubicolos iconos de este contenedor en el extremo superior*/
+    align-self: start; /*Ubico los iconos de este contenedor en el extremo superior*/
 }
 
 .valoracion {
@@ -1133,6 +1135,9 @@ footer {
     background-color: var(--color-footer-primario); 
 }
 
+footer a {
+    color: var(--color-uno);
+}
 /*Elementos que no aparecen en version mobile*/
 
 .primer-col,
@@ -1167,7 +1172,7 @@ footer p {
 }
 
 .menu-footer a {
-    font-size: clamp(1.1rem, 1.5vw, 2.5rem);
+    font-size: clamp(1.1rem, 1.3vw, 2.5rem);
     cursor: pointer;
     color: var(--color-uno);
 }
@@ -1182,7 +1187,6 @@ footer p {
 }
 
 .nosotros p {
-    font-size: clamp(0.9rem, 1.2vw, 2rem);
     text-align: start;
 }
 

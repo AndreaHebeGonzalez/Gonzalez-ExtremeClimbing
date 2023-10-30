@@ -43,6 +43,10 @@ main section {
     
 }
 
+.asterisco {
+    color: red;
+}
+
 .formulario {
     background-color: #D9D9D9;
     box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.337);
