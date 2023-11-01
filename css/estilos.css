@@ -167,19 +167,23 @@ header {
     transform: translateX(0) !important;
 }
 
-.ocultar {
+.estado {
     display: none;
 }
 
-.contenedor-menu-general{
+.mostar {
+    visibility: visible;
+    opacity: 1;
+}
+
+.contenedor-menu-general {
     background-color: var(--color-uno);
-    border-bottom: #000 solid 2px;
+    border-bottom: #000000 0.5px solid;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1.2rem; 
     position: relative;
-
 }
 
 .contenedor-menu-principal {
@@ -191,7 +195,7 @@ header {
     top: 0;
     left: 0;
     height:calc(100vh - 56px);
-    width: 50vw;
+    width: 80vw;
     min-width: 210px;
     max-width: 316px;
     display: flex;
@@ -200,7 +204,7 @@ header {
     align-items: start;
     background-color: var(--color-uno);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s;
+    transition: transform 0.5s ease, opacity 0.5s ease, visibility 0.5s;
 }
 
 #header-menu-mobile {
@@ -235,13 +239,14 @@ header {
     transition: all .7s ease;
     opacity: 0;
     visibility: hidden;
+    z-index: 99;
 }
 
 ::placeholder {
     color: #b3b3b3;
 }
 
-.input-extendido { /* Aplico estilos al input cuando el mouse pasa o hace focus sobre #header-menu-mobile */
+.input-extendido {
     width: 100% !important; 
     opacity: 1 !important;
     visibility: visible !important;
@@ -249,12 +254,9 @@ header {
 
 .lupa {
     cursor: pointer;
-    transition: 0.5s;
+    transition: 0.7s;
 }
 
-.lupa img {
-    transition: .7 ease;
-}
 
 /* Carrito de compras mobile y desktop */
 
@@ -265,20 +267,18 @@ header {
 }
 
 #carrito div {
-    height: 20px;
-    width: 20px;
+    min-height: 20px;
+    min-width: 20px; /*Para que se adapte al tamaño que abarca el numero de digitos*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border-radius: 50%;
     position: absolute;
     top:50%;
     left: 50%;
     z-index: 10;
     background-color: #D58206;
-
-}
-
-#carrito div span {
-    text-align: center;
-    display: block;
+    padding: 0.2rem;
 }
 
 /*Propiedades para menú principal activan en mobile se modifican en desktop */
@@ -367,7 +367,7 @@ header {
     transition: 0.3s grid-template-rows;
 }
 
-.mostrar-categorias{
+.mostrar-categorias {
     grid-template-rows: 1fr;
 }
 
@@ -474,14 +474,17 @@ header {
 @media (min-width: 768px) {
 
     /* ==========Header========== */
-
+    header {
+        padding-bottom: 50px;
+    }
+    
     .contenedor-menu-general {
         padding: 2rem 3rem;
     }
 
     .contenedor-menu-principal { 
-        width: 35vw;
-        height: 100vh;
+        width: 40vw;
+        height: calc(100vh - 56px);
     }
 
     .logo img {
@@ -519,7 +522,7 @@ header {
     /* ==========Header========== */
 
     header {
-        padding-bottom: 70px;
+        padding-bottom: 50px;
     }
 
     /* Elementos que aparecen en desktop */
@@ -528,23 +531,16 @@ header {
         display: block;
     }
 
-    .aparece {
-        display: block !important; /*sobre escribe estilo en linea*/
-    }
-
     .buscar {
         border: #000 1px solid;
-        transition: all .7s ease;
     }
 
-    .aparece-input {
-        display: block !important;
-    }
 
     .input-extendido-dos { /* Aplico estilos al input cuando el mouse pasa o hace focus sobre #header-menu-mobile */
         width: 35% !important; 
-        opacity: 1 !important;
-        visibility: visible !important;
+        visibility: visible;
+        opacity: 1;
+        transition: all 0.5s;
     }
 
     #icono-hamburguesa,
@@ -564,7 +560,6 @@ header {
     }
 
     .contenedor-menu-general{
-        border-bottom: #000000 0.5px solid;
         padding: 1.5rem 2rem;
         gap: 1.5rem;
     }
@@ -578,13 +573,14 @@ header {
         max-width: initial;
         visibility: visible;
         opacity: 1;
-        transition: none;
+        transition: opacity 0.3s ease, visibility 0.5s;
         box-shadow: none;
-        transition: none
     }
 
     .menu-oculto {
-        display: none;
+        visibility: hidden;
+        opacity: 0;
+        
     }
 
     .nav-principal {
@@ -604,16 +600,18 @@ header {
         font-size: 18px;
     }
 
-    .nav-principal ul > li a{
+    .nav-principal ul > li a {
         font-size: clamp(1.25rem, 1.2vw, 2rem);
     }
 
-    .desaparece-menu-principal {
-        visibility: hidden;
-        opacity: 0;
-        transition: 0.5s ease, visibility 0.5s;
+    .estado {
+        display: block !important;
     }
-
+    
+    .desaparece {
+        display: none;
+    }
+    
     .btn-1 {
         width: 12%;
         height: 6%;   
@@ -642,9 +640,8 @@ header {
 
 /* ========Seccion categorias======================== */
 .contenedor {
+    text-align: center; /*Para centrar horizontalmente*/
     padding: 25px ;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 #categorias .cat-1 {
@@ -753,18 +750,15 @@ header {
     /* Título--------->*/
 
 .titulo {
-    display: flex;
+    display: inline-flex; /*Para que el contenedor titulo abarque el ancho de su contenido y el .borde se adapte en proporcion a su tamaño*/
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
     text-align: center;
-    padding-bottom: 50px;
+    padding-bottom: 40px;  
 }
 
 .titulo h2 {    
-    /* font-weight: 500; */
-    margin-bottom: 0.3rem;
-    text-align: center;
+    margin-bottom: 0.2rem;
+    
 }
 
 .estiloTitulo { /*Estilo del span */
@@ -774,9 +768,9 @@ header {
 .borde {
     border-top: 2px solid rgba(236, 239, 241, 0.07);
     height: 1px;
-    margin: 15px auto 0;
+    margin: 10px auto 0;
     position: relative;
-    width: 40%;
+    width: 60%;
     padding-bottom: 25px;
 }
 
@@ -787,7 +781,7 @@ header {
     transform: translate(-50%, -50%);
     position: absolute;
     top: 2px;
-    width: 30%;
+    width: 45%;
     background-color: var(--color-destacable);
 }
 
@@ -815,12 +809,12 @@ header {
     border-radius: 3%;
     width: 55%; /* Evito que sea demasiado ancho en dispositivos más chicos */ 
     max-width: 400px;
-    min-width: 215px; /* Coloco un limite superior al ancho de este contenedor en la medida que crece el tamaño de pantalla hasta 767px*/ 
+    min-width: 215px; /* Coloco un limite inferioir al ancho de este contenedor en la medida que crece el tamaño de pantalla hasta 767px*/ 
     height: auto;
     transition: transform 0.5s;
 }
 
-#contenedor-productos-destacados .producto:hover{
+#contenedor-productos-destacados .producto:hover {
     border-bottom: solid 3px var(--color-destacable-dos);
     transform: translateY(-20px);
 }
@@ -834,7 +828,7 @@ header {
 }
 
 .row-img-iconos .articulo { /*Imagen central del <articles>*/
-    width: calc(75% - 50px); /*Fijo la proporcion de crecimiento , evito el desborde en su contenedor padre, y al mismo tiempo hago que el tamaño de la imagen crezca con el tamaño de pantalla, ya que su contenedor padre tiene un ancho del 100% (.row-img-iconos), y su abuelo del 70% (.producto), el limite del crecimiento se impondrá en el max-width de este ultimo (400px)*/
+    width: calc(100% - 50px); /*Fijo la proporcion de crecimiento , evito el desborde en su contenedor padre, y al mismo tiempo hago que el tamaño de la imagen crezca con el tamaño de pantalla, ya que su contenedor padre tiene un ancho del 100% (.row-img-iconos), y su abuelo del 70% (.producto), el limite del crecimiento se impondrá en el max-width de este ultimo (400px)*/
 }
 
 #contenedor-productos-destacados .row-img-iconos > img:nth-child(1),
@@ -889,7 +883,7 @@ header {
 /*========Seccion bunner========================*/
 
 .banner_1 {
-    padding: 70px 0;
+    padding: 25px 0;
 }
 
 .contenedor_banner {
@@ -984,14 +978,11 @@ header {
 
 @media (min-width: 768px) {
 
-    /* ========Seccion productos destacados======================== */
-
-        /* Título--------->*/
-
-    .borde { /* Corresponde al titulo de la seccion*/
-        width:30%;
+    .contenedor {
+        padding: 50px;
     }
-        /*Fin Título--------->*/
+
+    /* ========Seccion productos destacados======================== */
 
 
         /*Articulos productos destacados--------->*/
@@ -1008,63 +999,10 @@ header {
 
     /*========Seccion bunner========================*/
 
-
-    /*========Fin Seccion bunner========================*/
-}
-/* 
-=====================DESKTOP para MAIN===================== 
-*/
-
-@media (min-width: 1200px) {
-
-    /*Para el main*/
-
-    .contenedor {
-        padding: 70px;
+    .banner_1 {
+        padding: 70px 0;
     }
 
-    /*========Seccion categorias========================*/
-
-    
-
-    #categorias .cat-1 h2 {
-        top: 80%;
-        left: 80%;
-    }
-
-    #categorias .cat-2 h2 {
-        top: 12%;
-    }
-
-    /*========FIN Seccion categorias========================*/
-
-    /* ========Seccion productos destacados======================== */
-        /*Articulos productos destacados--------->*/
-
-    .borde {
-        width:35%;
-    }
-
-    #contenedor-productos-destacados {
-        flex-wrap: nowrap; /*Esto ubica los articles en linea permanentemente, en la medida que aumenta el tamaño de dispositivos aumenta el tamaño del conenedor <articles> y de sus hijos*/
-    }
-
-    .producto {
-        max-width: 280px;
-    }
-
-    #contenedor-productos-destacados .producto .articulo {
-        width: calc(80% - 50px); /*Fijo en un 100% el crecimiento de la imagen central*/
-    }
-
-    .producto .valoracion > img {
-        width: 18px;
-        height: auto;
-    }
-        /*Fin Articulos productos destacados--------->*/
-    /*========Fin Seccion productos destacados========================*/
-
-    /*========Seccion bunner========================*/
     .contenedor_banner .img-bunner-1 {
         width: 75%;
     }
@@ -1098,6 +1036,60 @@ header {
         top: -12%; /* ! */
         right: 10%; /* ! */
     }
+
+    /*========Fin Seccion bunner========================*/
+}
+/* 
+=====================DESKTOP para MAIN===================== 
+*/
+
+@media (min-width: 1200px) {
+
+    /*Para el main*/
+
+    /*========Seccion categorias========================*/
+
+    
+
+    #categorias .cat-1 h2 {
+        top: 80%;
+        left: 80%;
+    }
+
+    #categorias .cat-2 h2 {
+        top: 12%;
+    }
+
+    /*========FIN Seccion categorias========================*/
+
+    /* ========Seccion productos destacados======================== */
+        /*Articulos productos destacados--------->*/
+
+    .borde {
+        width:45%;
+    }
+
+    #contenedor-productos-destacados {
+        flex-wrap: nowrap; /*Esto ubica los articles en linea permanentemente, en la medida que aumenta el tamaño de dispositivos aumenta el tamaño del conenedor <articles> y de sus hijos*/
+    }
+
+    .producto {
+        max-width: 280px;
+    }
+
+    #contenedor-productos-destacados .producto .articulo {
+        width: calc(80% - 50px); /*Fijo en un 100% el crecimiento de la imagen central*/
+    }
+
+    .producto .valoracion > img {
+        width: 18px;
+        height: auto;
+    }
+        /*Fin Articulos productos destacados--------->*/
+    /*========Fin Seccion productos destacados========================*/
+
+    /*========Seccion bunner========================*/
+
     
     /*========Fin Seccion bunner========================*/
 }

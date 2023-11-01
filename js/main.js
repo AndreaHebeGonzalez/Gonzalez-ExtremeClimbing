@@ -17,9 +17,6 @@ const subMenuCliente = document.querySelector('#cliente');
 
 const contenedorMenuCliente = document.querySelector('.nav-contenedor-cliente');
 
-//Ancho de la pantalla del dispositivo
-
-const anchoDePantalla = window.innerWidth; //! No utilizado todavía
 
 
 //Escuchador de eventos ---------------------->
@@ -31,29 +28,52 @@ iconoHamburguesa.addEventListener('click', () => {
     iconoHamburguesa.style.opacity= '0';
 }); 
 
-/* La siguiente funcion desaparece el menu mobile y aparece el icono de hamburguesa */
+/* El siguiente script desaparece el menu mobile y aparece el icono de hamburguesa */
 cerrar.addEventListener('click', () => {
     menuPrincipal.classList.remove("visible");
     iconoHamburguesa.style.opacity= '1';
 });
 
+
+/* El siguiente script desaparece y aparece el ícono de la lupa del menú principal*/
+
+//Ancho de la pantalla del dispositivo
+
+const anchoDePantalla = window.innerWidth; //! No utilizado todavía
+
 /* Efectos sobre buscador de productos */
 
 //Buscador de productos menu mobile:
+
 contenedorLupa[0].addEventListener('click', () => {
     buscar[0].classList.toggle('input-extendido');
 } )
 
 //Buscador de productos menu desktop:
+
+let buscadorActivado = false;
+
 contenedorLupa[1].addEventListener('click', () => {
-    buscar[1].classList.toggle('aparece');
-    menuPrincipal.classList.toggle('menu-oculto');
-
-
-    setTimeout(() => { // Desaparezco el menú principal de la version desktop con delay para que funcione la animación del buscador de productos
-        buscar[1].classList.toggle('input-extendido-dos');
-    }, 1);
-})
+    if (buscadorActivado === false) {
+        buscadorActivado = true;
+        menuPrincipal.classList.add('menu-oculto');
+        setTimeout (() => {
+            buscar[1].classList.add('estado');
+            setTimeout (() => {
+                buscar[1].classList.add('input-extendido-dos');
+            }, 150)
+        }, 150);
+    } else if (buscadorActivado === true) {
+        buscadorActivado = false;
+        buscar[1].classList.remove('input-extendido-dos');
+        setTimeout (() => {
+            buscar[1].classList.remove('estado');
+            setTimeout (() => {
+                menuPrincipal.classList.remove('menu-oculto');
+            }, 150)
+        }, 150);
+    }
+});
 
 //Aparece el submenú desplegable de productos en menú mobile
 
@@ -71,10 +91,6 @@ subMenuCliente.addEventListener('mouseout', () => {
     contenedorMenuCliente.classList.remove('mostrar-submenu-cliente');
 })
 
-
-subMenuProductos.addEventListener('click', () => {
-    contenedorMenuCategorias.classList.toggle('mostrar-categorias');
-})
 
 
 

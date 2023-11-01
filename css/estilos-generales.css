@@ -41,7 +41,7 @@ li {
 
 header {
     background-color: var(--color-uno);
-    padding-bottom: 0;
+    padding-bottom: 25px; /*Sobreescribe lo definido en estilos.css*/
 }
 
 .iconos-respons {
@@ -53,7 +53,6 @@ header {
 @media (min-width: 1200px) {
     header {
         background-color: var(--color-uno);
-        padding-bottom: 50px;
     }
     
 }

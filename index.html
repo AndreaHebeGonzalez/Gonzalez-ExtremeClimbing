@@ -119,8 +119,8 @@
 
             <!-- Busqueda de productos-->
 
-            <input type="text" placeholder="buscar" class= "buscar ocultar"> 
-            <div class="lupa aparece" style="display: none;">
+            <input type="text" placeholder="buscar" class= "buscar desaparece"> <!-- Me interesa que el input no ocupe espacio a partir de 1200px -->
+            <div id="lupa2" class="lupa estado">
                 <img class="icono" src="img/iconos/buscar.png" alt="Carrito de compras" style="max-width: 43px;"> <!-- Este carrito se ubica a la derecha en version mobile y escritorio -->
             </div>
 
@@ -128,7 +128,7 @@
 
             <div id="carrito">
                 <img class="icono" src="img/iconos/carrito.png" alt="Carrito de compras" style="max-width: 43px;"> <!-- Este carrito se ubica a la derecha en version mobile y escritorio -->
-                <div class="cantidad-de-productos"><span>0</span></div>
+                <div class="cantidad-de-productos"><p>0</p></div>
             </div>
 
             
@@ -285,6 +285,7 @@
                         <img class="articulo" src="img/img-camping/carpa-domo.jpg" alt="Producto 1">
                         <img class="icono" src="img/iconos/me-gusta-64.png" alt="Sumalo a tus favoritos">
                     </div>
+                    
                     <div class="valoracion">
                         <img src="img/iconos/estrella-llena.png" alt="estrella llena">
                         <img src="img/iconos/estrella-llena.png" alt="estrella llena">
