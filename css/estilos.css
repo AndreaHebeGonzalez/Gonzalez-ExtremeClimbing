@@ -242,6 +242,10 @@ header {
     z-index: 99;
 }
 
+.desaparece {
+    display: none;
+}
+
 ::placeholder {
     color: #b3b3b3;
 }
@@ -606,10 +610,6 @@ header {
 
     .estado {
         display: block !important;
-    }
-    
-    .desaparece {
-        display: none;
     }
     
     .btn-1 {
