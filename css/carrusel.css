@@ -1,43 +1,54 @@
 .contenedor-carrusel {
-    width: 100%;
+    width: 98vw;
     overflow: hidden;
+    padding: 25px 0 25px 0;
+    display: flex;
+    justify-content: center;
 }
 
 .carrusel {
-    display: flex;
-    transition: transform 1s ease;
-    gap: 1rem;
-    overflow: hidden;
-    padding: 25px 0 10px 0;
-
+    white-space: nowrap;
+    animation: desplazamiento 30s linear infinite;
 }
 
-.carrusel .cont-img {
-    width: 100%;
+.contenedor-carrusel:hover .carrusel {
+    animation-play-state: paused;
+}
+
+.carrusel img {
+    width: 18vw;
     height: auto;
+    margin: 0 2vw;
 }
 
-.carrusel .cont-img img {
-    width: 20vw;
-    height: auto;
+@keyframes desplazamiento {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-100%); 
+
+    }
 }
+
 
 @media (min-width: 768px) {
 
 
-    .carrusel .cont-img img {
-        width: 15vw;
+    .carrusel img {
+        width: 14vw;
         height: auto;
     }
 }
 
 @media (min-width: 1200px) {
 
-    .carrusel {
-        padding-top: 70px;
+    .contenedor-carrusel {
+        padding-top: 60px;
     }
 
-    .carrusel .cont-img img {
+    .carrusel img {
         width: 10vw;
         height: auto;
     }

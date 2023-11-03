@@ -56,13 +56,15 @@ let buscadorActivado = false;
 contenedorLupa[1].addEventListener('click', () => {
     if (buscadorActivado === false) {
         buscadorActivado = true;
+        console.log(contenedorLupa[1])
+        console.log(menuPrincipal);
         menuPrincipal.classList.add('menu-oculto');
         setTimeout (() => {
             buscar[1].classList.add('estado');
             setTimeout (() => {
                 buscar[1].classList.add('input-extendido-dos');
-            }, 150)
-        }, 150);
+            }, 160)
+        }, 160);
     } else if (buscadorActivado === true) {
         buscadorActivado = false;
         buscar[1].classList.remove('input-extendido-dos');
