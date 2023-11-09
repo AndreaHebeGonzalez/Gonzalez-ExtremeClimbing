@@ -954,10 +954,6 @@ header {
 
 @media (min-width: 901px) {
 
-    .carrusel-deslizante {
-        padding: 70px 0;
-    }
-
     .borde {
         width:45%;
     }
@@ -979,9 +975,6 @@ header {
 
 @media (min-width: 1400px) {
 
-    .carrusel-deslizante {
-        padding: 100px 0;
-    }
 
     #contenedor-productos-destacados {
         width: 175%; /*Elijo que a partir de esta medidida y hasta 1200px entren tres productos centralmente*/
@@ -1110,6 +1103,11 @@ header {
         padding: 50px;
     }
 
+    .carrusel-deslizante {
+        padding: 50px 0;
+    }
+
+
     /*========Seccion bunner========================*/
 
     .banner_1 {
@@ -1162,6 +1160,11 @@ header {
     .contenedor {
         padding: 70px;
     }
+
+    .carrusel-deslizante {
+        padding: 70px 0;
+    }
+
     /*========Seccion categorias========================*/
 
     
@@ -1185,8 +1188,14 @@ header {
 }
 
 @media (min-width: 1900px) {
+    .contenedor {
+        padding: 100px;
+    }
 
 
+    .carrusel-deslizante {
+        padding: 100px 0;
+    }
 }
 
 /*--------------------------------------------------------------
