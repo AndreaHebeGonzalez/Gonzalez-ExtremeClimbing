@@ -54,7 +54,6 @@ function siguientesDiapositivas() {
     // diaposAMover representa cuantas diapos pueden mostrarse simultáneamente en el contenedor que presenta un width:100vw; sin que quede espacio sin utilizar. Este valor será el numero de deslizamientos completos que caben en el contenedor
 
     diaposAMover = Math.round(contGeneralCarrusel.offsetWidth / diapositivas[0].offsetWidth);
-    console.log(diaposAMover);
     
     
     /*Una vez que se hizo clic en el botón de flecha derecha lo desactivo para evitar que se rompa el carrusel si se hace clic mas de una vez*/ 
@@ -158,8 +157,9 @@ function anterioresDiapositivas() {
 
 //La variable "calc" va a representar la disntancia de arrastre, la variable prev indica el valor anterior de arrastre, con estos dos calculo la posicion de arrastre o nueva posicion, este valor se requiere para que al final se pueda calcular comparando con el valor de prev la direccion de arrastre y luego de eso ejecutar la funcion de desplazamiento de carrusel correspondiente (siguientesDiapositivas() o anterioresDiapositivas())
 function arrastre(evento) {
+    console.log(evento.touches);
     if (evento.type ==='touchmove') {
-        calc = (evento.touch[0].clientX - x) / 1;
+        calc = (evento.touches[0].clientX- x) / 1;
     } else {
         calc = (evento.clientX - x) / 1;
     };
@@ -197,7 +197,7 @@ contProductosDestacados.addEventListener('touchstart',(evento) => {
 /*Los siguientes eventos y funciones controlan el evento cuando el usuario  se libera del arrastre*/
 
 contProductosDestacados.addEventListener('mouseup', finalizaArrastre);
-contProductosDestacados.addEventListener('touchend', finalozaArrastre);
+contProductosDestacados.addEventListener('touchend', finalizaArrastre);
 
 function finalizaArrastre() {
 //Se comparan las coordenadas del eje x del puntero del mouse cuando comenzó el arrastre con las coordenadas del eje x del puntero del mouse cuando finalizó el arrastre y en función de si la nueva coordenada es mayor o menor que la coordenada inicial se define la direccion de desplazamiento del carrusel
@@ -209,7 +209,7 @@ function finalizaArrastre() {
     
     //Se deben eliminar los escuchadores de evento de arrastre para que la funcion no se siga ejecutando una vez finalizado el mismo
 
-    contProductosDestacados.removeEventListener('mousemove');
-    contProductosDestacados.removeEventListener('touchmove');
+    contProductosDestacados.removeEventListener('mousemove', arrastre);
+    contProductosDestacados.removeEventListener('touchmove', arrastre);
 };
 
