@@ -636,6 +636,14 @@ header {
 
 
 /* ========Seccion categorias======================== */
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .contenedor {
     text-align: center; /*Para centrar horizontalmente*/
     padding: 25px ;
@@ -657,7 +665,7 @@ header {
 
 #categorias .cat-1::before {
     content: '';
-    background: rgba(0, 0, 0, 0.63);
+    background: rgba(0, 0, 0, 0.469);
     position: absolute;
     top: 0;
     right: 0;
@@ -685,7 +693,7 @@ header {
 
 #categorias .cat-2::before {
     content: '';
-    background: rgb(0, 0, 0, 0.63);
+    background: rgb(0, 0, 0, 0.469);
     position: absolute;
     top: 0;
     right: 0;
@@ -724,7 +732,7 @@ header {
 
 #categorias .cat-3::before {
     content: '';
-    background: rgb(0, 0, 0, 0.63);
+    background: rgb(0, 0, 0, 0.469);
     position: absolute;
     top: 0;
     right: 0;
@@ -795,12 +803,12 @@ header {
     justify-content: center;
     align-items: center;
     height: 100%;
-    width: 100vw;
+    width: 98vw;
     padding: 25px 0;
 }
 
 .contenedor-general-carrusel { /*Con javaScript hago que el alto de este contenedor se adapte al alto del contenedor de los articulos*/
-    width: 100vw;
+    width: 98vw;
     position: relative;
     margin: 2rem 0;
     display: flex;
