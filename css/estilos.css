@@ -47,6 +47,7 @@ body {
     background-color: var(--color-body);
     font-family: var(--fuente-parrafos);
     position: relative;
+    overflow-x: hidden;
 }
 
 h1,
@@ -787,17 +788,47 @@ header {
 
     /*Fin Título--------->*/
 
-    /*Articulos productos destacados--------->*/
+/* ========Seccion productos destacados======================== */
 
-#contenedor-productos-destacados { /* Contenedor padre de todos los articulos corresponde a la sección, abarcará el 100% del contenido del main*/
+/*Articulos productos destacados--------->*/
+
+.carrusel-deslizante {
+    overflow-x: hidden;
     display: flex;
-    flex-flow: column;
-    justify-content: center;
-    align-items: center;
-    gap: 1.5rem;
+    flex-direction: column;
+    height: 100%;
+    width: 100vw;
+    padding: 25px 0;
 }
 
-.producto { /*Este es el articulo y abarca 70% de su contenedor para valores menores a 768px, cuando aparecen en direccion columna*/
+.contenedor-general-carrusel { /*Co javaScript hago que el alto de este contenedor se adapte al alto del contenedor de los articulos*/
+    width: 100vw;
+    position: relative;
+    border: 2px solid blue;
+    margin: 2rem 0;
+    display: flex;
+    justify-content: center;
+}
+
+#contenedor-productos-destacados { /* //! slider-container */ /* Contenedor padre de todos los articulos corresponde a la sección, abarcará el 100% del contenido del main*/
+    border: #F69709 solid 3px;
+    display: flex;
+    flex-flow: row nowrap; /*Evito que se pasen a una segunda linea los articulos*/
+    position:absolute;
+    left: 0;
+    top: 0;
+    width: 700%; /*Establexco este ancho para que el articulo visible en pantallas chicas ocupe el 100% del ancho de su contenedor padre y se ubique centralmente, se logra porque son 7 articulos*/
+}
+
+.contenedor-producto { /*A este contenedor le aplico la propiedad order para cambiar el orden de visualizacion*/
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.producto { /* ! card Este es el articulo y abarca 70% de su contenedor para valores menores a 768px, cuando aparecen en direccion columna*/
     text-align: center; 
     background-color: var(--color-uno);
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
@@ -807,8 +838,7 @@ header {
     align-items: center;
     padding: 1.5rem;
     border-radius: 3%;
-    width: 55%; /* Evito que sea demasiado ancho en dispositivos más chicos */ 
-    max-width: 400px;
+    width: 70%;
     min-width: 215px; /* Coloco un limite inferioir al ancho de este contenedor en la medida que crece el tamaño de pantalla hasta 767px*/ 
     height: auto;
     transition: transform 0.5s;
@@ -876,6 +906,104 @@ header {
     border: #000 1px solid;
     color: #000;
 }
+
+.flecha-izquierda,
+.flecha-derecha {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid white;
+    text-align: center;
+    background: #fff;
+    font-size: clamp(30px, 1.5vw, 60px);
+    border-radius: 50%;
+    position: absolute; /*Con respecto a .contenedor-general-carrusel , el alto de ese contenedor se adapta al alto del contenido por un script*/
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    transition: 0.3s;
+    color: #000;
+    overflow: hidden;
+}
+
+.flecha-izquierda:hover,
+.flecha-derecha:hover {
+    color: #fff;
+    background: #000;
+    border: 1px solid rgb(0, 0, 0);
+} 
+
+.flecha-izquierda {
+    left: 1rem;
+}
+
+
+.flecha-derecha {
+    right: 1rem;
+}
+
+
+@media (min-width: 601px) {
+
+
+    #contenedor-productos-destacados {
+        width: 350%; /*Esto es para que entren dos productos centralmente en la pantalla del dispositivo*/
+    }
+}
+
+@media (min-width: 901px) {
+
+    .carrusel-deslizante {
+        padding: 70px 0;
+    }
+
+    .borde {
+        width:45%;
+    }
+
+    #contenedor-productos-destacados {
+        width: 233.33%; /*Elijo que a partir de esta medidida y hasta 1200px entren tres productos centralmente*/
+    }
+
+
+    #contenedor-productos-destacados .producto .articulo {
+        width: calc(80% - 50px); /*Fijo en un 100% el crecimiento de la imagen central*/
+    }
+
+    .producto .valoracion > img {
+        width: 18px;
+        height: auto;
+    }
+}
+
+@media (min-width: 1400px) {
+
+    .carrusel-deslizante {
+        padding: 100px 0;
+    }
+
+    #contenedor-productos-destacados {
+        width: 175%; /*Elijo que a partir de esta medidida y hasta 1200px entren tres productos centralmente*/
+    }
+
+    
+    #contenedor-productos-destacados .producto .articulo  {
+        width: calc(100% - 80px); /*Modifico la propiedad por modificar el tamaño de los iconos de esta fila*/
+    }
+
+    .icono {
+        width: clamp(40px, 2.01vw, 70px);
+        height: auto;
+    }
+
+    .producto .valoracion > img {
+        width: clamp(30px, 1.5vw, 60px);
+        height: auto;
+    }
+    
+}
+/* Fin Seccion productos destacados */
 
     /*FIN Articulos productos destacados--------->*/
 /* ========FIN Seccion productos destacados ========================*/
@@ -982,21 +1110,6 @@ header {
         padding: 50px;
     }
 
-    /* ========Seccion productos destacados======================== */
-
-
-        /*Articulos productos destacados--------->*/
-
-    #contenedor-productos-destacados {
-        display: flex;
-        flex-flow: row wrap; /*A partir de 768 pixeles los articulos se colocarán en fila, cuando no entren pasaran a segunda fila.*/ /* ! Reemplazar por slider cuando pueda*/
-        justify-content: space-evenly; /*Reparto espacio sobramente equitativamente*/
-    }
-    .producto {
-        max-width: 250px;
-    }
-    /*FIN Articulos productos destacados--------->*/
-
     /*========Seccion bunner========================*/
 
     .banner_1 {
@@ -1046,7 +1159,9 @@ header {
 @media (min-width: 1200px) {
 
     /*Para el main*/
-
+    .contenedor {
+        padding: 70px;
+    }
     /*========Seccion categorias========================*/
 
     
@@ -1062,31 +1177,6 @@ header {
 
     /*========FIN Seccion categorias========================*/
 
-    /* ========Seccion productos destacados======================== */
-        /*Articulos productos destacados--------->*/
-
-    .borde {
-        width:45%;
-    }
-
-    #contenedor-productos-destacados {
-        flex-wrap: nowrap; /*Esto ubica los articles en linea permanentemente, en la medida que aumenta el tamaño de dispositivos aumenta el tamaño del conenedor <articles> y de sus hijos*/
-    }
-
-    .producto {
-        max-width: 280px;
-    }
-
-    #contenedor-productos-destacados .producto .articulo {
-        width: calc(80% - 50px); /*Fijo en un 100% el crecimiento de la imagen central*/
-    }
-
-    .producto .valoracion > img {
-        width: 18px;
-        height: auto;
-    }
-        /*Fin Articulos productos destacados--------->*/
-    /*========Fin Seccion productos destacados========================*/
 
     /*========Seccion bunner========================*/
 
@@ -1096,28 +1186,9 @@ header {
 
 @media (min-width: 1900px) {
 
-    /* Seccion productos destacados */
-        /*Articulos productos destacados*/
 
-    #contenedor-productos-destacados .producto {
-        max-width: 700px; /* modifico el tamaño máximo para <articles> */
-    }
-    #contenedor-productos-destacados .producto .articulo  {
-        width: calc(100% - 80px); /*Modifico la propiedad por modificar el tamaño de los iconos de esta fila*/
-    }
-
-    .icono {
-        width: clamp(40px, 2.01vw, 70px);
-        height: auto;
-    }
-
-    .producto .valoracion > img {
-        width: clamp(30px, 1.5vw, 60px);
-        height: auto;
-    }
-        /*Fin Articulos productos destacados*/
-    /* Fin Seccion productos destacados */
 }
+
 /*--------------------------------------------------------------
 /** 5. FOOTER
 --------------------------------------------------------------*/

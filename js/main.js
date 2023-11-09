@@ -72,8 +72,8 @@ contenedorLupa[1].addEventListener('click', () => {
             buscar[1].classList.remove('estado');
             setTimeout (() => {
                 menuPrincipal.classList.remove('menu-oculto');
-            }, 150)
-        }, 150);
+            }, 200)
+        }, 200);
     }
 });
 
